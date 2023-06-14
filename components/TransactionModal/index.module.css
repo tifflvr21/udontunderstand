@@ -1,0 +1,538 @@
+.modal {
+  padding: 20px 20px 0;
+  overflow: hidden;
+}
+
+.all {
+  transition: transform 300ms, opacity 300ms, filter 300ms;
+}
+
+.all[data-blur="true"] {
+  filter: blur(9px);
+  opacity: .4;
+  pointer-events: none;
+}
+
+/* 
+
+  Header css
+
+*/
+.header {
+  width: 100%;
+  float: left;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.header .left,
+.header .right {
+  display: flex;
+}
+
+.header .left {
+  flex-direction: column;
+  gap: 8px;
+}
+
+.header .left div {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.header .left div h3 {
+  font-size: 1.25em;
+  font-weight: 600;
+}
+
+.header .left div svg {
+  height: 24px;
+  width: 24px;
+  transform: translateY(-1px);
+}
+
+.header .left p {
+  color: var(--text-color-secondary);
+}
+
+.header .right {
+  gap: 12px;
+}
+
+.header .right .box {
+  height: 40px;
+  background-color: var(--bg-color-0);
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  padding: 0 14px;
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.header .right .box,
+.header .right button {
+  box-shadow: 0 5px 13px rgb(0 0 0 / 9%);
+  user-select: none;
+}
+
+.header .right .box img,
+.header .right .box svg {
+  height: 16px;
+  color: var(--text-color-secondary);
+  transform: translateY(-1px);
+}
+
+.header .right button {
+  display: flex;
+  align-items: center;
+}
+
+.header .right button div,
+.input button div,
+.load button div,
+.load a div {
+  margin-right: 6px;
+  border-color: transparent;
+  border-top: 2px solid var(--theme-gold-text);
+}
+
+.header .closeMobile {
+  display: none;
+}
+
+@media (max-width: 768px) {
+  .header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+    position: relative;
+  }
+
+  .header .left svg {
+    display: none;
+  }
+
+  .header .left {
+    max-width: calc(100% - 44px);
+  }
+
+  .header .closeMobile {
+    position: absolute;
+    top: 0;
+    right: 0;
+    height: 32px;
+    width: 32px;
+    background-color: var(--bg-color-3);
+    border: 1px solid var(--bg-color-5);
+    border-radius: 4px;
+    display: block;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .header .closeMobile svg {
+    height: 22px;
+    color: var(--text-color-secondary);
+  }
+
+  .header .closeMobile:hover {
+    color: #fff;
+    cursor: pointer;
+  }
+
+  .header .right {
+    display: block;
+    width: 100%;
+  }
+
+  .header .right div {
+    width: calc(50% - 28px - 6px);
+    float: left;
+    display: flex;
+    justify-content: center;
+  }
+
+  .header .right div:first-child {
+    margin-right: 12px;
+  }
+
+  .header .right button {
+    margin: 10px 0 0;
+    display: flex;
+    justify-content: center;
+  }
+}
+
+
+
+/* 
+
+  Filter css
+
+*/
+.filter {
+  width: 100%;
+  float: left;
+  display: flex;
+  margin: 18px 0;
+  gap: 12px;
+}
+
+.filter .search,
+.filter .sort {
+  display: flex;
+  align-items: center;
+  position: relative;
+  height: 40px;
+  background-color: var(--bg-color-0);
+  border-radius: 6px;
+}
+
+.filter .search {
+  flex-grow: 1;
+}
+
+.filter .search svg {
+  height: 16px;
+  position: absolute;
+  top: 12px;
+  left: 12px;
+  color: var(--text-color-secondary);
+  pointer-events: none;
+}
+
+.filter .search input {
+  width: 100%;
+  height: 40px;
+  outline: 0;
+  border: 0;
+  background-color: transparent;
+  padding: 0 12px 0 36px;
+  color: var(--text-color-primary);
+}
+
+.filter .sort {
+  padding: 0 12px;
+  user-select: none;
+}
+
+.filter .sort:hover {
+  cursor: pointer;
+  background-color: var(--bg-color-1);
+}
+
+.filter .sort svg {
+  height: 16px;
+  transform: translateY(-1px);
+}
+
+.filter .sort p {
+  font-size: 14px;
+  color: var(--text-color-secondary);
+  margin: 0 0 0 4px;
+}
+
+.filter .sort p span,
+.filter .sort svg {
+  color: var(--text-color-primary);
+}
+
+.filter .sort p span {
+  margin: 0 0 0 4px;
+  font-weight: 500;
+  font-size: 12px;
+}
+
+@media (max-width: 768px) {
+  .filter {
+    flex-direction: column;
+    margin: 12px 0;
+  }
+}
+
+
+
+
+
+
+
+/* 
+
+  Items css
+
+*/
+.itemsContainer {
+  width: 100%;
+  height: 450px;
+  overflow: auto;
+  float: left;
+  position: relative;
+}
+
+/* .itemsContainer[data-error="true"] {
+  overflow: visible;
+} */
+
+.error {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  width: 100%;
+  gap: 12px;
+  text-align: center;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 9;
+  opacity: 0;
+  /* transform: scale(.9); */
+  transition: transform 300ms, opacity 300ms;
+  pointer-events: none;
+}
+
+.error[data-visible="true"] {
+  opacity: 1;
+  /* transform: translateY(-40px); */
+  pointer-events: all;
+}
+
+.error svg {
+  height: 48px;
+  color: var(--theme-color-contrast);
+}
+
+.error h3 {
+  font-size: 1.2em;
+  font-weight: 500;
+}
+
+.error p {
+  color: var(--text-color-secondary);
+  width: 50%;
+  line-height: 1.6em;
+}
+
+.error button,
+.error a:not(.noflex) {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 30px 0 0;
+  padding: 0 50px;
+  gap: 5px;
+}
+
+.error button svg,
+.error a svg {
+  color: #fff;
+  height: 18px;
+  margin: 0;
+}
+
+.itemsContainer .items {
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  grid-gap: 12px;
+  padding: 2px 0;
+  /* padding: 2px 0 40px; */
+  transition: opacity 300ms, filter 300ms, transform 300ms;
+}
+
+.btnsNextPrev {
+  width: 100%;
+  float: left;
+  padding: 18px 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.btnsNextPrev div p {
+  text-align: center;
+  font-weight: 500;
+}
+
+.btnsNextPrev div p.null {
+  font-size: 14px;
+  font-weight: 400;
+  margin: 4px 0 0;
+  color: var(--text-color-secondary);
+}
+
+.btnsNextPrev button svg {
+  display: none;
+}
+
+/* .itemsContainer[data-error="true"] .items {
+  opacity: .7;
+  filter: blur(10px);
+} */
+
+/* .itemsContainer .items::after {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 80px;
+  background: linear-gradient(180deg, transparent 0%, var(--bg-color-0) 100%);
+  z-index: 6;
+  pointer-events: none;
+  user-select: none;
+  content: '';
+} */
+
+@media (max-width: 768px) {
+  .itemsContainer .items {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+
+
+
+
+
+/* 
+
+  Tradelink css
+
+*/
+.input {
+  width: 50%;
+  float: left;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.input input {
+  width: calc(100% - 24px);
+  outline: 0;
+  border: 0;
+  background-color: var(--bg-color-6);
+  height: 40px;
+  line-height: 40px;
+  border-radius: 12px;
+  color: var(--text-color-primary);
+  padding: 0 12px;
+  text-align: center;
+  margin: 30px 0 15px;
+}
+
+.input button,
+.load button,
+.load a {
+  padding: 0;
+  width: 100%;
+  margin: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.input button div,
+.load button div,
+.load a div {
+  margin-top: -2px;
+}
+
+.input .error2 {
+  margin: 35px 0 0;
+  width: 100%;
+  color: #e35247;
+}
+
+.a:hover {
+  opacity: .75;
+}
+
+.load button,
+.load a {
+  margin: 30px 0 0;
+  padding: 0 40px;
+}
+
+.load a {
+  width: auto;
+}
+
+.load button svg,
+.load a svg {
+  height: 16px;
+  margin: 0 5px 0 0;
+  color: inherit;
+  transform: translateY(-1px);
+}
+
+.choose {
+  width: 50%;
+  margin: 15px 0 0;
+}
+
+.choose button {
+  padding: 12px 0;
+  margin: 0;
+  outline: 0;
+  border: 0;
+  width: calc(50% - 6px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 6px;
+  float: left;
+  background-color: var(--bg-color-0);
+  border: 1px solid var(--bg-color-5);
+  color: var(--text-color-secondary);
+  font-weight: 500;
+  box-shadow: 0 5px 13px rgb(0 0 0 / 20%);
+  border-radius: 100px;
+  transition: background 300ms, transform 300ms, color 300ms;
+}
+
+.choose button img {
+  height: 18px;
+}
+
+/* .choose button span {
+  line-height: 32px;
+} */
+
+.choose button.full {
+  width: 100%;
+  margin: 12px 0 0;
+}
+
+.choose button:hover {
+  cursor: pointer;
+  background-color: var(--bg-color-3);
+  color: var(--text-color-primary);
+  transform: translateY(-2px);
+}
+
+@media (max-width: 768px) {
+  .btnsNextPrev div p.null,
+  .btnsNextPrev button span,
+  .btnsNextPrev .noMobile {
+    display: none;
+  }
+
+  .btnsNextPrev button svg {
+    display: block;
+    margin: 0;
+    height: 14px;
+  }
+
+  .btnsNextPrev div p {
+    font-size: 14px;
+  }
+}

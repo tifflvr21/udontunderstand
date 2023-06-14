@@ -1,0 +1,156 @@
+.itemSmall {
+  background-color: #19192499;
+  border: 1px solid #36364e99;
+  border-radius: 6px;
+}
+
+.itemSmall {
+  width: calc(100% - 22px);
+  float: left;
+  padding: 10px;
+  margin: 0 0 10px;
+  transition: transform 300ms;
+  animation: fadeUp 300ms;
+}
+
+@keyframes fadeUp {
+  0% {
+    opacity: 0;
+    transform: translateY(4px);
+  }
+
+  100% {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+.itemSmall:hover {
+  /* cursor: pointer; */
+  transform: translateY(-2px);
+}
+
+.itemSmall .image {
+  height: 44px;
+  width: 44px;
+  float: left;
+  user-select: none;
+}
+
+.itemSmall .text {
+  width: calc(100% - 44px - 20px - 24px);
+  float: left;
+  margin: 5px 10px 0;
+}
+
+.itemSmall .text .name {
+  width: 100%;
+  float: left;
+}
+
+.itemSmall .text .name {
+  font-size: 12px;
+  font-weight: 600;
+  text-transform: uppercase;
+  color: var(--text-color-tertiary-alt);
+  margin: 0 0 6px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.itemSmall .text .price svg,
+.itemSmall .text span {
+  float: left;
+  line-height: 16px;
+  font-size: 14px;
+}
+
+.itemSmall .text span {
+  font-weight: 600;
+  margin-left: 5px;
+}
+
+.itemSmall .text .price,
+.itemSmall .text .amount {
+  float: left;
+}
+
+.itemSmall .text .amount {
+  margin-left: 15px;
+}
+
+.itemSmall .text .amount svg {
+  float: left;
+  height: 16px;
+  color: var(--text-color-tertiary-alt);
+}
+
+.itemSmall .text .amount span{
+  margin-left: 3px;
+}
+
+.itemSmall .close {
+  float: left;
+  width: 24px;
+  margin: 10px 0;
+  color: var(--roulette-red-single);
+  transition: opacity 300ms;
+}
+
+.itemSmall .close:hover {
+  cursor: pointer;
+  opacity: .7;
+}
+
+.itemSmall .checkbox {
+  width: 22px;
+  height: 22px;
+  background-color: var(--bg-color-1);
+  border: 1px solid var(--bg-color-2);
+  float: left;
+  margin: 10px 0;
+  border-radius: 4px;
+}
+
+.itemSmall .checkbox:hover {
+  cursor: pointer;
+}
+
+.itemSmall .checkbox svg {
+  float: left;
+  height: 18px;
+  margin: 2px;
+  color: var(--roulette-green-single);
+  opacity: 0;
+  transition: opacity 150ms;
+}
+
+.itemSmall[data-active="true"] .checkbox svg {
+  opacity: 1;
+}
+
+.itemSmall .image,
+.itemSmall .image img {
+  position: relative;
+}
+
+/* .item .image img, */
+.itemSmall .image img {
+  width: 100%;
+  z-index: 2;
+}
+
+.itemSmall .image div {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  transition: transform 300ms cubic-bezier(.4,0,.2,1), opacity 300ms;
+  filter: blur(23px);
+  opacity: .6;
+  z-index: 1;
+  /* background: radial-gradient(50% 50% at 50% 50%, rgb(147, 163, 252) 0%, rgba(12, 20, 66, 0) 100%); */
+  background: radial-gradient(50% 50% at 50% 50%, var(--color) 0,rgb(78 88 147 / 0%) 100%);
+}

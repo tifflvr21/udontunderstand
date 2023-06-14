@@ -1,0 +1,72 @@
+.outer {
+  width: 100%;
+  height: 100%;
+  float: left;
+  position: relative;
+}
+
+.inner {
+  width: 99999px;
+  transition: transform 300ms;
+}
+
+.wrapper {
+  float: left;
+}
+
+.arrows {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  pointer-events: none;
+}
+
+.arrows .left,
+.arrows .right {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  height: 100%;
+  width: 20%;
+  padding: 0 20px;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 300ms;
+  display: flex;
+  align-items: center;
+}
+
+.arrows .left {
+  left: 0;
+  background: linear-gradient(90deg, #1f2027 0%, rgba(0, 0, 0, 0) 100%);
+}
+
+.arrows .right {
+  right: 0;
+  background: linear-gradient(90deg, rgba(0, 0, 0, 0) 0%, #1f2027 100%);
+}
+
+.arrows svg {
+  height: 32px;
+  transform: translateY(0);
+}
+
+.arrows .right {
+  justify-content: flex-end;
+}
+
+.arrows div[data-visible="true"] svg {
+  pointer-events: all;
+}
+
+.arrows div[data-visible="true"] {
+  opacity: 1;
+  /* pointer-events: all; */
+}
+
+.arrows div[data-visible="true"]:hover {
+  cursor: pointer;
+  opacity: .8;
+}

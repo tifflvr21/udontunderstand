@@ -1,0 +1,82 @@
+.select {
+  width: 100%;
+  float: left;
+  --height: 40px;
+  height: var(--height);
+  background-color: var(--bg-color-2);
+  border-radius: 5px;
+  overflow: hidden;
+  position: relative;
+  z-index: 5;
+}
+
+.select[data-expand] {
+  overflow: visible;
+}
+
+.main {
+  border-radius: 5px;
+}
+
+.main,
+.options div {
+  height: var(--height);
+  line-height: var(--height);
+  padding: 0 15px;
+  font-size: 14px;
+  transition: background 300ms;
+}
+
+.main:hover,
+.options:hover {
+  cursor: pointer;
+  background-color: var(--bg-color-5);
+}
+
+.main svg {
+  float: right;
+  height: 16px;
+  margin: calc( (var(--height) - 16px) / 2 ) 0;
+  color: var(--text-color-chat);
+  transition: transform 300ms;
+}
+
+.select[data-expand] .main svg {
+  transform: rotate(180deg);
+}
+
+.options {
+  border-top: 2px solid var(--bg-color-3);
+  background-color: var(--bg-color-5);
+  transform: translateY(-10px);
+  opacity: 0;
+  transition: transform 300ms, opacity 300ms;
+}
+
+.select[data-expand] .options {
+  transform: none;
+  opacity: 1;
+}
+
+.options div {
+  color: var(--text-color-chat);
+}
+
+.options div:hover {
+  background-color: var(--bg-color-4);
+}
+
+.options div span {
+  float: left;
+}
+
+.options div[data-selected] span {
+  color: var(--text-color-primary) !important;
+}
+
+.options div svg {
+  height: 18px;
+  margin: calc( (var(--height) - 18px) / 2 ) 0;
+  float: right;
+  color: var(--btn-success);
+}

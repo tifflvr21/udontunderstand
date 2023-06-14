@@ -1,0 +1,119 @@
+.btn {
+  color: var(--text-color-primary);
+  font-size: 14px;
+  font-weight: 500;
+  padding: 0 30px;
+  height: 40px;
+  line-height: 40px;
+  border-radius: 12px;
+  transition: transform 100ms, box-shadow 100ms;
+  display: block;
+  float: left;
+  user-select: none;
+  overflow: hidden;
+  position: relative;
+  /* background: linear-gradient(135deg, var(--theme-gold) 0%, var(--theme-gold-alt) 100%); */
+  background: linear-gradient(135deg, var(--theme-color) 0%, #693aa7 100%);
+}
+
+.btn[disabled] {
+  opacity: .5 !important;
+  pointer-events: none !important;
+}
+
+/* .btn[data-variant="theme"] {
+  box-shadow: 0px 3px 0px #683ca3;
+} */
+
+.btn[data-variant="success"] {
+  /* background: var(--btn-success) !important; */
+  background: radial-gradient(80.83% 220.6% at 34.17% 0%, #25e322 0%, #309f13 100%) !important;
+  box-shadow: 0px 4px 10px rgba(24, 27, 32, 0.5);
+  color: var(--text-color-primary);
+  /* box-shadow: 0px 3px 0px #146d0c; */
+}
+
+.btn[data-variant="success"]:hover {
+  background-color: var(--btn-success-hover) !important;
+}
+
+.btn[data-variant="primary"] {
+  background: var(--bg-color-2);
+}
+
+.btn[data-variant="primary"]:hover {
+  background: var(--bg-color-5);
+}
+
+.btn[data-variant="danger"] {
+  color: #080000;
+  background: var(--btn-danger) !important;
+}
+
+.btn[data-variant="danger"]:hover {
+  background: var(--btn-danger-hover) !important;
+}
+
+.btn[data-variant="theme"] {
+  font-weight: 600;
+  background: linear-gradient(135deg, var(--theme-gold) 0%, var(--theme-gold-alt) 100%);
+  color: var(--theme-gold-text);
+}
+
+.btn[data-variant="theme"]:hover {
+  background: var(--theme-gold);
+}
+
+.btn[data-variant="theme2"] {
+  color: #1d053c;
+}
+
+.btn[data-variant="theme2"]:hover {
+  background: var(--theme-color);
+}
+
+.btn:active:after,
+.btn[data-shiny="true"]:after {
+  content:'';
+  top:0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  transform:translateX(100%);
+  width:100%;
+  position: absolute;
+  z-index:1;
+  animation: slide 1s infinite;
+  background: linear-gradient(
+    to right,
+    rgba(255, 255, 255, 0) 0%,
+    rgba(255,255,255,0.25) 50%,
+    rgba(255, 255, 255 ,0) 100%
+  );
+}
+
+.btn svg {
+  height: 16px;
+  float: left;
+  margin: 11px 5px 0 0;
+}
+
+.btn span {
+  float: left;
+}
+
+.btn:hover {
+  cursor: pointer;
+  /* transform: translateY(-2px); */
+  /* transform: translateY(3px); */
+  /* box-shadow: none; */
+}
+
+.btn[data-block="true"] {
+  width: 100%;
+}
+
+@keyframes slide {
+  0% {transform:translateX(-100%);}
+  100% {transform:translateX(100%);}
+}

@@ -1,0 +1,48 @@
+.modal {
+  padding: 20px;
+}
+
+.modal h4 {
+  font-size: 18px;
+  font-weight: 500;
+  margin: 0 0 6px;
+}
+
+.modal p {
+  /* font-size: 14px; */
+  line-height: 1.4em;
+  color: var(--text-color-secondary);
+  margin: 0 0 20px;
+}
+
+.modal label {
+  font-size: 14px;
+  /* color: var(--text-color-secondary); */
+}
+
+.modal div {
+  border: 1px solid var(--bg-color-5);
+  background-color: var(--bg-color-1);
+  color: var(--text-color-secondary);
+  padding: 14px 12px;
+  border-radius: 6px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  user-select: all;
+  margin: 6px 0 20px;
+  font-size: 12px;
+}
+
+.modal a {
+  font-weight: 500;
+}
+
+.modal a:hover {
+  opacity: .7;
+}
+
+.modal p.sub {
+  margin: -14px 0 14px;
+  font-size: 14px;
+}

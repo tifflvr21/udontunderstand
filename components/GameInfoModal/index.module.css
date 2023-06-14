@@ -1,0 +1,15 @@
+.modal {
+  padding: 20px;
+}
+
+.modal h4 {
+  font-size: 18px;
+  font-weight: 500;
+  margin: 0 0 12px;
+}
+
+.modal p {
+  font-size: 14px;
+  line-height: 1.6em;
+  color: var(--text-color-secondary);
+}
